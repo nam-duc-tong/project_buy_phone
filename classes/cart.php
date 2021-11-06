@@ -46,14 +46,14 @@
             $result = $this->db->select($query);
             return $result;
         }
-        public function update_quantity_cart($quantity,$cartid){
+        public function update_quantity_cart($quantity,$cartId){
             $quantity = mysqli_real_escape_string($this->db->link,$quantity);
-            $cartid = mysqli_real_escape_string($this->db->link,$cartid);
+            $cartId = mysqli_real_escape_string($this->db->link,$cartId);
             //neu nguoi dung khong chon anh
             $query = "UPDATE tbl_cart SET
             quantity = '$quantity'
 
-            WHERE cartId = '$cartid'";
+            WHERE cartId = '$cartId'";
             $result = $this->db->update($query);
             if($result){
                 $msg = "<span class ='success'>Product Quantity Updated Successfully</span>";
@@ -64,9 +64,9 @@
                 return $msg;
             }
         }
-        public function del_product_cart($cartid){
-            $cartid = mysqli_real_escape_string($this->db->link,$cartid);
-            $query = "DELETE FROM tbl_cart WHERE cartId ='$cartid'";
+        public function del_product_cart($cartId){
+            $cartId = mysqli_real_escape_string($this->db->link,$cartId);
+            $query = "DELETE FROM tbl_cart WHERE cartId ='$cartId'";
             $result = $this->db->delete($query);
             if($result){
                 header('Location:cart.php');

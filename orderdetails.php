@@ -96,7 +96,7 @@
 								}
 								else{
 								?>
-								<td><a href="?cartid=<?php echo $result['cartid']?>">Xóa</a></td>
+								<td><a href="">Xóa</a></td>
 								<?php
 							}
 								?>

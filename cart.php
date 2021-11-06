@@ -3,16 +3,16 @@
 	// require_once 'inc/slider.php';	
 ?>
 <?php
-	if(isset($_GET['cartid'])){
-		$cartid = $_GET['cartid'];
-		$delcart = $ct->del_product_cart($cartid);
+	if(isset($_GET['cartId'])){
+		$cartId = $_GET['cartId'];
+		$delcart = $ct->del_product_cart($cartId);
 	}
 	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-		$cartid = $_POST['cartid'];
+		$cartId = $_POST['cartId'];
         $quantity = $_POST['quantity'];
-		$update_quantity_cart = $ct->update_quantity_cart($quantity,$cartid);
+		$update_quantity_cart = $ct->update_quantity_cart($quantity,$cartId);
 		if($quantity<=0){
-			$delcart = $ct->del_product_cart($cartid);
+			$delcart = $ct->del_product_cart($cartId);
 		}
     }
 ?>
@@ -59,13 +59,13 @@
 								<td><?php echo $result['price']." VND"?></td>
 								<td>
 									<form action="" method="post">
-										<input type="hidden" name="cartid" value="<?php echo $result['cartid']?>"/>
+										<input type="hidden" name="cartId" value="<?php echo $result['cartId']?>"/>
 										<input type="number" name="quantity" min = "0" value="<?php echo $result['quantity']?>"/>
 										<input type="submit" name="submit" value="Update"/>
 									</form>
 								</td>
 								<td><?php $total = $result['price'] * $result['quantity']; echo $total." VND";?></td>
-								<td><a href="?cartid=<?php echo $result['cartid']?>">Xóa</a></td>
+								<td><a href="?cartId=<?php echo $result['cartId']?>">Xóa</a></td>
 								
 							</tr>
 							<?php
